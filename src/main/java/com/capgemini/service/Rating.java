@@ -12,13 +12,14 @@ import com.capgemini.model.Merchant;
 import com.capgemini.model.Product;
 import com.capgemini.repository.UserRepository;  
 @Service  
-public interface UserService {
+public interface Rating {
 	public int setRatingOfProduct(int rating);
 	public Product updateAverageRating(Product product);
 	public Merchant updateMerchantRating(Merchant merchant); 
 	
 
 
+	
 	
 	
 }  

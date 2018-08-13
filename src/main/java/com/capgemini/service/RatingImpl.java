@@ -1,5 +1,5 @@
 package com.capgemini.service;
 
-public class UserServiceImpl {
+public class RatingImpl {
 
 }

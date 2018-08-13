@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.model.Customer;
-import com.capgemini.service.UserService;
+import com.capgemini.service.Rating;
 
 import java.util.List;
 import java.util.Optional;  
