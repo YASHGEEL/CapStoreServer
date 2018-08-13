@@ -12,8 +12,6 @@ public class Rating_Test {
 	@Mock
 	UserRepository userRepository;
 	
-			
-	}
 	
 
-
+}

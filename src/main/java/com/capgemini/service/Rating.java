@@ -19,4 +19,5 @@ public interface Rating {
 	public Product updateAverageRating(Product product);
 
 	public Merchant updateMerchantRating(Merchant merchant);
+	
 }
