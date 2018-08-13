@@ -1,11 +1,13 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Merchant 
@@ -35,6 +37,30 @@ public class Merchant
 	String securityAnswer;
 
 	String imageUrl;
+	
+	float averageRating;
+	
+	@OneToMany(targetEntity=Product.class)
+	List product;
+
+	
+	
+	
+	public float getAverageRating() {
+		return averageRating;
+	}
+
+	public void setAverageRating(float averageRating) {
+		this.averageRating = averageRating;
+	}
+
+	public List getProduct() {
+		return product;
+	}
+
+	public void setProduct(List product) {
+		this.product = product;
+	}
 
 	public int getId() {
 		return id;
@@ -132,8 +158,16 @@ public class Merchant
 		this.imageUrl = imageUrl;
 	}
 
+
+
+	public Merchant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Merchant(int id, Date startTime, Date endTime, String name, String address, String phone, String status,
-			String email, String password, String securityQuestion, String securityAnswer, String imageUrl) {
+			String email, String password, String securityQuestion, String securityAnswer, String imageUrl,
+			float averageRating, List product) {
 		super();
 		this.id = id;
 		this.startTime = startTime;
@@ -147,11 +181,8 @@ public class Merchant
 		this.securityQuestion = securityQuestion;
 		this.securityAnswer = securityAnswer;
 		this.imageUrl = imageUrl;
-	}
-
-	public Merchant() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.averageRating = averageRating;
+		this.product = product;
 	}
 
 	@Override
@@ -159,9 +190,11 @@ public class Merchant
 		return "Merchant [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", name=" + name
 				+ ", address=" + address + ", phone=" + phone + ", status=" + status + ", email=" + email
 				+ ", password=" + password + ", securityQuestion=" + securityQuestion + ", securityAnswer="
-				+ securityAnswer + ", imageUrl=" + imageUrl + "]";
+				+ securityAnswer + ", imageUrl=" + imageUrl + ", averageRating=" + averageRating + ", product="
+				+ product + "]";
 	}
-	
+
+
 	
 
 }
