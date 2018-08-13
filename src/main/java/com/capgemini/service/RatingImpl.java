@@ -21,6 +21,6 @@ public class RatingImpl implements Rating {
 	public Merchant updateMerchantRating(Merchant merchant) {
 		// TODO Auto-generated method stub
 		return null;
-		
 	}
+
 }
