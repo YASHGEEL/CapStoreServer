@@ -5,5 +5,5 @@ import com.capgemini.model.PromoCode;
 
 public interface PromoService {
 public abstract PromoCode promoDisplay(PromoCode promocode);
-public abstract Product newProductsList(Product product);
+public abstract Product newProductsDisplay(Product product);
 }
