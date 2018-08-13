@@ -10,16 +10,14 @@ import org.springframework.stereotype.Service;
 import com.capgemini.model.Customer;
 import com.capgemini.model.Merchant;
 import com.capgemini.model.Product;
-import com.capgemini.repository.UserRepository;  
-@Service  
+import com.capgemini.repository.UserRepository;
+
+@Service
 public interface Rating {
 	public int setRatingOfProduct(int rating);
+
 	public Product updateAverageRating(Product product);
-	public Merchant updateMerchantRating(Merchant merchant); 
-	
 
+	public Merchant updateMerchantRating(Merchant merchant);
 
-	
-	
-	
-}  
+}
