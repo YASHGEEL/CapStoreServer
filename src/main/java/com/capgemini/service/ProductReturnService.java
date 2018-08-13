@@ -4,5 +4,5 @@ import com.capgemini.model.OrderDetails;
 
 public interface ProductReturnService {
 
-	OrderDetails returnProduct(OrderDetails orderDetails);
+	OrderDetails productReturn(OrderDetails orderDetails);
 }
