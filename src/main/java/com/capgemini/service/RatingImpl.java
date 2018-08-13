@@ -22,5 +22,4 @@ public class RatingImpl implements Rating {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
