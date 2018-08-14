@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -26,15 +27,7 @@ public class Product
   
   String brand;
   
-  public String getBrand() {
-	return brand;
-}
-
-public void setBrand(String brand) {
-	this.brand = brand;
-}
-
-String description;
+  String description;
   
   float cost;
   
@@ -46,7 +39,9 @@ String description;
   
   int viewCount;
   
-  @OneToOne()
+  float averageRating;
+  
+  @ManyToOne()
   Merchant merchant;
   
   @OneToOne()
@@ -58,6 +53,14 @@ String description;
   @OneToMany(cascade=CascadeType.ALL , targetEntity=FeedBack.class)
   List feedback;
 
+  public String getBrand() {
+	return brand;
+}
+
+public void setBrand(String brand) {
+	this.brand = brand;
+}
+  
 public int getId() {
 	return id;
 }
@@ -171,14 +174,24 @@ public void setFeedback(List feedback) {
 }
 
 
+
+
+public float getAverageRating() {
+	return averageRating;
+}
+
+public void setAverageRating(float averageRating) {
+	this.averageRating = averageRating;
+}
+
 public Product() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
 public Product(int id, Date startTime, Date endTime, String name, String brand, String description, float cost,
-		String status, int quantity, String imageUrl, int viewCount, Merchant merchant, Discount discount,
-		Category category, List feedback) {
+		String status, int quantity, String imageUrl, int viewCount, float averageRating, Merchant merchant,
+		Discount discount, Category category, List feedback) {
 	super();
 	this.id = id;
 	this.startTime = startTime;
@@ -191,6 +204,7 @@ public Product(int id, Date startTime, Date endTime, String name, String brand, 
 	this.quantity = quantity;
 	this.imageUrl = imageUrl;
 	this.viewCount = viewCount;
+	this.averageRating = averageRating;
 	this.merchant = merchant;
 	this.discount = discount;
 	this.category = category;
@@ -201,8 +215,9 @@ public Product(int id, Date startTime, Date endTime, String name, String brand, 
 public String toString() {
 	return "Product [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", name=" + name + ", brand="
 			+ brand + ", description=" + description + ", cost=" + cost + ", status=" + status + ", quantity="
-			+ quantity + ", imageUrl=" + imageUrl + ", viewCount=" + viewCount + ", merchant=" + merchant
-			+ ", discount=" + discount + ", category=" + category + ", feedback=" + feedback + "]";
+			+ quantity + ", imageUrl=" + imageUrl + ", viewCount=" + viewCount + ", averageRating=" + averageRating
+			+ ", merchant=" + merchant + ", discount=" + discount + ", category=" + category + ", feedback=" + feedback
+			+ "]";
 }
 
 
