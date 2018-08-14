@@ -4,5 +4,5 @@ import com.capgemini.model.Product;
 
 public interface SimilarProductsInterface {
 
-	public Product GetProductDetails(int Id);
+	public Product SimilarProductsInterface();
 }
