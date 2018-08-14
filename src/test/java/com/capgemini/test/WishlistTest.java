@@ -19,7 +19,7 @@ import com.capgemini.service.WishlistService;
 import com.capgemini.service.WishlistServiceImpl;
 
 public class WishlistTest {
-	WishlistService WishlistService;
+	WishlistService wishlistService;
 	
 	@Mock
 	WishlistRepository Repository;
@@ -27,7 +27,7 @@ public class WishlistTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		
-		WishlistService = new WishlistServiceImpl(Repository);
+		wishlistService = new WishlistServiceImpl(Repository);
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class WishlistTest {
 		WishList wishlist=new WishList();
 		Product product=new Product();
 		product.setId(123);
-		WishlistService.add(product);
+		wishlistService.add(product);
 		assertEquals(product.getId(), 123);
 	}
 	@Test
@@ -45,7 +45,7 @@ public class WishlistTest {
 		
 		Product product=new Product();
 		product.setId(456);
-		WishlistService.remove(product);
+		wishlistService.remove(product);
 		assertNotEquals(product.getId(), 456);
 	}
 	@Test
@@ -54,7 +54,7 @@ public class WishlistTest {
 		
 		Product product=new Product();
 		product.setId(-1);
-		WishlistService.add(product);
+		wishlistService.add(product);
 		assertNotEquals(null, -1);
 	}
 	@Test
@@ -62,7 +62,7 @@ public class WishlistTest {
 	{
 		
 		Product product=new Product();
-		WishlistService.display();
+		wishlistService.display();
 		List<Product> list=new ArrayList<>();
 		list.add(product);
 		assertEquals(null,list);
@@ -74,7 +74,7 @@ public class WishlistTest {
 		
 		Product product=new Product();
 		product.setId(123);
-		WishlistService.display();
+		wishlistService.display();
 		List<Product> list=new ArrayList<>();
 		list.add(product);
 		assertNotEquals(null,list);
