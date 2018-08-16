@@ -27,8 +27,10 @@ public class ProductReturnServiceImpl implements ProductReturnService {
 		 List<Product> returningProducts=o.getProduct();
 		 for (Product product : returningProducts)
 		 {
-			
+			 int quantity=product.getQuantity()+1;
+			 product.setQuantity(quantity);
 			 
+			//System.out.println(product);
 			 
 		 }
 		 return orderDetailsRepo.save(o);

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.exception.OrderDetailsNotFoundException;
 import com.capgemini.model.OrderDetails;
 import com.capgemini.service.ProductReturnService;
 
@@ -15,7 +16,7 @@ public class ProductReturnController {
 	
 	
 	@RequestMapping("/returnPurchasedProduct")
-	public OrderDetails getProductReturnDetails(int id)
+	public OrderDetails getProductReturnDetails(int id) throws OrderDetailsNotFoundException
 	{
 		return productReturnService.returnProduct(id);
 	}
