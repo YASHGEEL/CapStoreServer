@@ -1,8 +1,9 @@
 package com.capgemini.service;
 
-import com.capgemini.model.Product;
+import com.capgemini.model.FeedBack;
 
 public interface UserFeedBackService {
-	public Product getFeedback(int id);
+	public FeedBack getFeedback(String comment,int rating);
+	
 
 }
