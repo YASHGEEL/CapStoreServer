@@ -14,9 +14,6 @@ public interface PromoRepository extends JpaRepository<PromoCode, Integer>{
 	@Query(value="select p from PromoCode p")
 	public  List<PromoCode> newPromos();
 	
-
-public interface PromoRepository extends JpaRepository<PromoCode, Integer> {
-
 	@Query("select p from PromoCode p where p.name=?1")
 	PromoCode getPromoCode(String promoname);
 	
