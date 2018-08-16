@@ -4,4 +4,5 @@ public interface ServiceInterface {
 
 	
 	public String generatePromocode();
+	
 }
