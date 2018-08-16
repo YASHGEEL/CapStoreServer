@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 import com.capgemini.model.Merchant;
 import com.capgemini.repository.MerchantRepository;
 import com.capgemini.service.MerchantValidateService;
-import com.capgemini.service.MerchantValidateServiceImpl;
+
 
 public class testcaseMerchantvalidation {
 
