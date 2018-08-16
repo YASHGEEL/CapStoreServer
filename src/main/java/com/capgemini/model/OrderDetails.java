@@ -33,6 +33,7 @@ public class OrderDetails
 	  @OneToOne()
 	  Customer customer;
 	  
+	  
 	  @ManyToMany(targetEntity=Product.class)
 	  List product;
 

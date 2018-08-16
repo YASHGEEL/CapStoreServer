@@ -45,6 +45,7 @@ public class Product
   @ManyToOne()
   Merchant merchant;
   
+  
   @ManyToMany(targetEntity=OrderDetails.class)
   List order;
 
