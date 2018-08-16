@@ -11,4 +11,5 @@ import com.capgemini.model.PromoCode;
 public interface PromoRepository extends JpaRepository<PromoCode, Integer>{
 	@Query(value="select p from PromoCode p")
 	public  List<PromoCode> newPromos();
+	
 }
