@@ -10,7 +10,4 @@ public interface OrderDetailsRepository extends CrudRepository<OrderDetails,Inte
 	@Query("select orderDetails from OrderDetails orderDetails where orderDetails.id=?1")
 	OrderDetails findByOrderId(int id);
 	
-	@Query("Update OrderDetails orderDetails SET orderDetails.status='RETURNED' where orderDetails.status='DELIVERED'")
-	OrderDetails updateOrderStatus();
-	
 }
