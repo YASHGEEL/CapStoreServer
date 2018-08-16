@@ -1,16 +1,21 @@
 package com.capgemini.service;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.model.FeedBack;
 import com.capgemini.model.Merchant;
 import com.capgemini.model.Product;
 
-@Service
 public interface Rating {
-	public int setRatingOfProduct(int rating);
 
-	public Product updateAverageRating(Product product);
+	public int getFb(int pId);
 
-	public Merchant updateMerchantRating(Merchant merchant);
+	public float setAvgRating(int pId);
+
+	public List<Product> getProductList(@Param(value = "id") int mId);
 
 }
