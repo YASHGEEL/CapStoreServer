@@ -21,5 +21,6 @@ public class ProductDetailsController {
 	@RequestMapping(value="/getProductDetails/{id}")
 	public Product getProductDetails(@PathVariable int id){
 		 return service.getProductDetails(id);
+		 
 	}
 }

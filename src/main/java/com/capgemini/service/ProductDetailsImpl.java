@@ -27,6 +27,7 @@ public class ProductDetailsImpl implements ProductDetailsService {
 		//repo.getProductDetails(id);
 	//	System.out.println(product);
 		return repo.getProductDetails(id);
+		
 	}
 
 }
