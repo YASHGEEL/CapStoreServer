@@ -4,5 +4,5 @@ import com.capgemini.model.Merchant;
 
 public interface MerchantValidateService {
 
-	public Merchant merchantValidation();
+	public Merchant merchantValidation(Merchant merchant);
 }
