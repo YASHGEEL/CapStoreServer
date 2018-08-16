@@ -20,8 +20,7 @@ public class Discount
 	
 	Date endTime;
 	
-	@OneToOne()
-	Product product;
+	
 	
 	int discountPercentage;
 	
@@ -61,13 +60,7 @@ public class Discount
 		this.endTime = endTime;
 	}
 
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+	
 
 	public int getDiscountPercentage() {
 		return discountPercentage;
@@ -84,21 +77,20 @@ public class Discount
 		// TODO Auto-generated constructor stub
 	}
 
-	public Discount(int id, Date startTime, Date endTime, Product product, int discountPercentage,
+	public Discount(int id, Date startTime, Date endTime,int discountPercentage,
 			float discountedPrice) {
 		super();
 		this.id = id;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.product = product;
+		
 		this.discountPercentage = discountPercentage;
 		this.discountedPrice = discountedPrice;
 	}
 
 	@Override
 	public String toString() {
-		return "Discount [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", product=" + product
-				+ ", discountPercentage=" + discountPercentage + ", discountedPrice=" + discountedPrice + "]";
+		return "Discount [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", discountPercentage=" + discountPercentage + ", discountedPrice=" + discountedPrice + "]";
 	}
 
 	
