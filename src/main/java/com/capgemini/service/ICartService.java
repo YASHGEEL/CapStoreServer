@@ -3,25 +3,25 @@ package com.capgemini.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.capgemini.model.Cart;
 //import com.capgemini.model.Customer;
 import com.capgemini.model.Product;
 
 
 public interface ICartService {
 	
-	public Product addCartItem(int i);
+	public Product addCartItem(int pid,int custid);
 	
-	public Product removeCartItem(Product product,int id);
+	public void addCart(int custid);
 	
-	public Product  removefromDb(List<Product> list, int id);// to remove item from db after purchase
+	public void removeCartItem(int pid,int custid);
 	
-	public ArrayList<Product> viewCart(int id);//Customer id is used to view cart
+	public Cart viewCart(int custid);
 	
-	public Product  updateCartItem(List<Product> list, int id, int quantity);
-	
-	
-	public Product getProductByProductID(int pid);
-	
+	public Boolean minAmountCheck(int custid);
 
 	
 }

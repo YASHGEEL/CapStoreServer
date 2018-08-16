@@ -22,7 +22,7 @@ public class CartTest {
 	@Before
 	public void setUp() throws Exception{
 		MockitoAnnotations.initMocks(this);
-		cartService=new CartServiceImpl(repo);
+		//cartService=new CartServiceImpl(repo);
 	}
 	
 	@Test
