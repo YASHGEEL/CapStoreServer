@@ -4,8 +4,8 @@ import com.capgemini.model.OrderDetails;
 
 public interface UpdateStatus {
 
-	public void setId(OrderDetails order);
-	public String updateDetails();
-	
+	public OrderDetails setDefaultStatus(int id);
+    public void updateStatus(int id);
+    public String displayDeliveryStatus(int order_id);
 	
 }

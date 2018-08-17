@@ -1,35 +1,48 @@
 package com.capgemini.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import com.capgemini.model.Customer;
 import com.capgemini.model.OrderDetails;
-import com.capgemini.repository.UserRepository;  
-@Service  
+import com.capgemini.repository.UpdateStatusRepo;  
+@Component 
 public class UpdateStatusImpl implements UpdateStatus {
+	
+	@Autowired
+	private UpdateStatusRepo repo;
 
-	public UpdateStatusImpl(UserRepository user) {
-		// TODO Auto-generated constructor stub
+
+	public UpdateStatusImpl(UpdateStatusRepo repo) {
+		super();
+		this.repo = repo;
 	}
 
 	@Override
-	public void setId(OrderDetails order) {
-		// TODO Auto-generated method stub
+	public OrderDetails setDefaultStatus(int id) {
+		OrderDetails order=repo.getOne(id);
+		order.setStatus("Not Delivered");
+		return repo.save(order);
+	}
+
+	@Override
+	public void updateStatus(int id) {
+		OrderDetails order=repo.getOne(id);
+		order.setStatus("Delivered");
+		repo.save(order);
 		
 	}
 
+
 	@Override
-	public String updateDetails() {
-		// TODO Auto-generated method stub
-		return null;
+	public String displayDeliveryStatus(int order_id) {
+		return repo.displayDeliveryStatus(order_id);
+		
+	}
+
+	
 	}
 
 	
 
 
-}  
