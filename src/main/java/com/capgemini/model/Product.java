@@ -1,6 +1,7 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -45,37 +47,16 @@ public class Product
   
   float averageRating;
   
-  @ManyToMany(targetEntity=FeedBack.class)
+  @ManyToMany(targetEntity=Cart.class, mappedBy="product")
   List cart;
   
-  public Product(int id, Date startTime, Date endTime, String name, String brand, String description, float cost,
-		String status, int quantity, String imageUrl, int viewCount, float averageRating, List cart, Merchant merchant,
-		Discount discount, Category category, List feedback) {
-	super();
-	this.id = id;
-	this.startTime = startTime;
-	this.endTime = endTime;
-	this.name = name;
-	this.brand = brand;
-	this.description = description;
-	this.cost = cost;
-	this.status = status;
-	this.quantity = quantity;
-	this.imageUrl = imageUrl;
-	this.viewCount = viewCount;
-	this.averageRating = averageRating;
-	this.cart = cart;
-	this.merchant = merchant;
-	this.discount = discount;
-	this.category = category;
-	this.feedback = feedback;
-}
 
-@ManyToOne()
+  @ManyToOne()
+  @JoinColumn(name="product")
   Merchant merchant;
   
   
-  @ManyToMany(targetEntity=OrderDetails.class)
+  @ManyToMany(targetEntity=OrderDetails.class,mappedBy="product")
   List order;
 
   @OneToOne()
@@ -84,7 +65,7 @@ public class Product
   @OneToOne()
   Category category;
   
-  @OneToMany(cascade=CascadeType.ALL , targetEntity=FeedBack.class)
+  @OneToMany(targetEntity=FeedBack.class)
   List feedback;
 
   public String getBrand() {
@@ -108,7 +89,7 @@ public Date getStartTime() {
 }
 
 public void setStartTime(Date startTime) {
-	this.startTime = startTime;
+	this.startTime = Date.valueOf(LocalDate.now());
 }
 
 public Date getEndTime() {
@@ -232,6 +213,30 @@ public List getCart() {
 public void setCart(List cart) {
 	this.cart = cart;
 }
+
+public Product(int id, Date startTime, Date endTime, String name, String brand, String description, float cost,
+		String status, int quantity, String imageUrl, int viewCount, float averageRating, List cart, Merchant merchant,
+		Discount discount, Category category, List feedback) {
+	super();
+	this.id = id;
+	this.startTime = startTime;
+	this.endTime = endTime;
+	this.name = name;
+	this.brand = brand;
+	this.description = description;
+	this.cost = cost;
+	this.status = status;
+	this.quantity = quantity;
+	this.imageUrl = imageUrl;
+	this.viewCount = viewCount;
+	this.averageRating = averageRating;
+	this.cart = cart;
+	this.merchant = merchant;
+	this.discount = discount;
+	this.category = category;
+	this.feedback = feedback;
+}
+
 
 @Override
 public String toString() {
