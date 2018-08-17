@@ -75,7 +75,7 @@ public class Merchant
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(Date startTim) {
 		this.startTime = Date.valueOf(LocalDate.now());
 	}
 
