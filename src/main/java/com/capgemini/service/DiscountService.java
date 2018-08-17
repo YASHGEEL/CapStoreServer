@@ -4,5 +4,5 @@ import com.capgemini.model.Cart;
 import com.capgemini.model.Product;
 
 public interface DiscountService {
-	public float DicountCalculation(Product product);
+	public Cart discountCalculation(int id);
 }
