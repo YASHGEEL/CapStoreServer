@@ -23,7 +23,7 @@ public class ProductReturnServiceImpl implements ProductReturnService {
 		 if(o.getStatus().equalsIgnoreCase("DELIVERED"))
 		 {
 			 o.setStatus("RETURNED");
-		 }
+			 
 		 List<Product> returningProducts=o.getProduct();
 		 for (Product product : returningProducts)
 		 {
@@ -32,6 +32,7 @@ public class ProductReturnServiceImpl implements ProductReturnService {
 			 
 			//System.out.println(product);
 			 
+		 }
 		 }
 		 return orderDetailsRepo.save(o);
 		  
