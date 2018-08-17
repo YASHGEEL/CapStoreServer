@@ -10,14 +10,14 @@ import com.capgemini.model.Product;
 public interface SortService {
 
 	//for filtering products
-	public List<Product> viewProductsInRange(Category category, float minPrice, float maxPrice) throws ProductNotFoundException, CategoryNotFoundException;
+	public List<Product> viewProductsInRange(int category, float minPrice, float maxPrice) throws ProductNotFoundException, CategoryNotFoundException;
 	
 	//for sorting products
-	public List<Product> sortProductsByPriceAscending(Category category) throws CategoryNotFoundException;
-	public List<Product> sortProductsByPriceDescending(Category category)throws CategoryNotFoundException;
+	public List<Product> sortProductsByPriceAscending(int category) throws CategoryNotFoundException;
+	public List<Product> sortProductsByPriceDescending(int category)throws CategoryNotFoundException;
 	
 	
-	public List<Product> sortProductsByViewCountDescending(Category category)throws CategoryNotFoundException;
+	public List<Product> sortProductsByViewCountDescending(int category)throws CategoryNotFoundException;
 	
-	public List<Product> sortProductsByRatingsDescending(Category category) throws CategoryNotFoundException;
+	public List<Product> sortProductsByRatingsDescending(int category) throws CategoryNotFoundException;
 }
