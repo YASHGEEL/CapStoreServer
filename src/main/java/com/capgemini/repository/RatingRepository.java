@@ -12,6 +12,7 @@ import com.capgemini.model.Product;
 public interface RatingRepository extends JpaRepository<FeedBack, Integer> {
 
 	
+	
 	@Query(value = "SELECT feed_back.rating FROM feed_back  WHERE feed_back.id=?1", nativeQuery = true)
 	public int getFeedback(int fId);
 

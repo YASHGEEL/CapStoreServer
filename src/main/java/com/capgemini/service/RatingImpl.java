@@ -41,8 +41,8 @@ public class RatingImpl implements Rating {
 		return avgRating;
 
 	}
-	
 
+	
 	@Override
 	public int getFb(int fId) {
 		return ratingRepository.getFeedback(fId);

@@ -2,7 +2,8 @@ package com.capgemini.service;
 
 public interface Rating {
 
-	public int getFb(int fId);
+	
+public int getFb(int fId);
 
 	public float setAvgRating(int pId);
 

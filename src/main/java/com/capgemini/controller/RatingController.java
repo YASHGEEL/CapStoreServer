@@ -15,6 +15,7 @@ public class RatingController { // implements ErrorController
 	@Autowired(required = true)
 	private Rating rating;
 
+	
 	@RequestMapping(value = "/rating", method = RequestMethod.GET)
 	public int get(@RequestParam("fid") int fId) {
 
@@ -37,3 +38,4 @@ public class RatingController { // implements ErrorController
 	}
 
 }
+ 
