@@ -24,7 +24,7 @@ public class RatingController { // implements ErrorController
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public float avgRating(@RequestParam("pid") int pId) {
-		System.out.print("Average rating of Product:  ");
+
 		return rating.setAvgRating(pId);
 
 	}
