@@ -1,16 +1,14 @@
 package com.capgemini.service;
 
-import org.springframework.stereotype.Service;
-
-import com.capgemini.model.Merchant;
-import com.capgemini.model.Product;
-
-@Service
 public interface Rating {
-	public int setRatingOfProduct(int rating);
 
-	public Product updateAverageRating(Product product);
+	
+public int getFb(int fId);
 
-	public Merchant updateMerchantRating(Merchant merchant);
+	public float setAvgRating(int pId);
+
+	public float getAvgRating(int pId);
+
+	public float getMerchantAvgRating(int mId);
 
 }
