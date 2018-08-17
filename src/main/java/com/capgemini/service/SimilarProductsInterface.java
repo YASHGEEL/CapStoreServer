@@ -5,6 +5,5 @@ import java.util.ArrayList;
 import com.capgemini.model.Product;
 
 public interface SimilarProductsInterface {
-
-	public ArrayList<Product> SimilarProductsInterface();
+	ArrayList<Product> findSimilarProductsByProductRef(int id);
 }
