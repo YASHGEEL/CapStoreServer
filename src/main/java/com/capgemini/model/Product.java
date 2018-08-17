@@ -8,17 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Product 
 {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  int id;
+   int id;
  
   Date startTime;
 	
@@ -42,11 +46,16 @@ public class Product
   
   float averageRating;
   
+  @ManyToMany(targetEntity=Cart.class, mappedBy="product")
+  List cart;
+  
+
   @ManyToOne()
+  @JoinColumn(name="product")
   Merchant merchant;
   
   
-  @ManyToMany(targetEntity=OrderDetails.class)
+  @ManyToMany(targetEntity=OrderDetails.class,mappedBy="product")
   List order;
 
   @OneToOne()
@@ -55,7 +64,7 @@ public class Product
   @OneToOne()
   Category category;
   
-  @OneToMany(cascade=CascadeType.ALL , targetEntity=FeedBack.class)
+  @OneToMany(targetEntity=FeedBack.class)
   List feedback;
 
   public String getBrand() {
@@ -194,8 +203,18 @@ public Product() {
 	// TODO Auto-generated constructor stub
 }
 
+
+
+public List getCart() {
+	return cart;
+}
+
+public void setCart(List cart) {
+	this.cart = cart;
+}
+
 public Product(int id, Date startTime, Date endTime, String name, String brand, String description, float cost,
-		String status, int quantity, String imageUrl, int viewCount, float averageRating, Merchant merchant,
+		String status, int quantity, String imageUrl, int viewCount, float averageRating, List cart, Merchant merchant,
 		Discount discount, Category category, List feedback) {
 	super();
 	this.id = id;
@@ -210,19 +229,21 @@ public Product(int id, Date startTime, Date endTime, String name, String brand, 
 	this.imageUrl = imageUrl;
 	this.viewCount = viewCount;
 	this.averageRating = averageRating;
+	this.cart = cart;
 	this.merchant = merchant;
 	this.discount = discount;
 	this.category = category;
 	this.feedback = feedback;
 }
 
+
 @Override
 public String toString() {
 	return "Product [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", name=" + name + ", brand="
 			+ brand + ", description=" + description + ", cost=" + cost + ", status=" + status + ", quantity="
 			+ quantity + ", imageUrl=" + imageUrl + ", viewCount=" + viewCount + ", averageRating=" + averageRating
-			+ ", merchant=" + merchant + ", discount=" + discount + ", category=" + category + ", feedback=" + feedback
-			+ "]";
+			+ ", cart=" + cart + ", merchant=" + merchant + ", discount=" + discount + ", category=" + category
+			+ ", feedback=" + feedback + "]";
 }
 
 
