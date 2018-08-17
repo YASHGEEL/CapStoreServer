@@ -8,11 +8,13 @@ import com.capgemini.model.Product;
 
 public interface SearchService {
 
-	public List<Product> searchProducts(String searchString);
+	public List<Product> searchProductByName(String searchString);
+	public List<Product> searchProductByBrand(String searchString);
+	public List<Product> searchProductBycategory(String searchString);
 
-	public List<Merchant> searchMerchant(String searchString);
+	public Merchant searchMerchant(String searchString);
 
-	public List<Customer> searchCustomer(String searchString);
+	public Customer searchCustomer(String sname);
 	
 	
 	
