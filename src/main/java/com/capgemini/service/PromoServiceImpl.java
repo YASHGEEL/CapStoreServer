@@ -28,18 +28,20 @@ PromoRepository promo;
 		//List list=new ArrayList();
 		// LocalDate date=LocalDate.now();
 		List<PromoCode> list=promo.newPromos();
+	//	System.out.println(list);
 		return list;
 	}
 
 	@Override
 	public List<Product> newProductsDisplay() throws ProductNotFoundException{
-		System.out.println("true");
 	    LocalDate date=LocalDate.now();
 	    Date date1=Date.valueOf(date);
-	    date=date.minusDays(3);
-	    System.out.println(date1);
+	    LocalDate date2=date.minusDays(3);
+	    Date date3=Date.valueOf(date2);
+	    //System.out.println(date1);
+	   // System.out.println(date3);
 	   // List productList=new ArrayList();
-	   List<Product> productList=product.newProducts(date1);
+	   List<Product> productList=product.newProducts(date3,date1);
 		return productList;
 	}
 
