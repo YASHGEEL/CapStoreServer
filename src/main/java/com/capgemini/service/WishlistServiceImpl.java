@@ -2,10 +2,11 @@ package com.capgemini.service;
 import com.capgemini.model.Product;
 import com.capgemini.model.WishList;
 import com.capgemini.repository.UserRepository;
+import com.capgemini.repository.WishlistRepository;
 
 public class WishlistServiceImpl implements WishlistService {
 
-	public WishlistServiceImpl(UserRepository userRepository) {
+	public WishlistServiceImpl(WishlistRepository repository) {
 		// TODO Auto-generated constructor stub
 	}
 
