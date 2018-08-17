@@ -1,6 +1,7 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -41,7 +42,7 @@ public class PromoCode
 	}
 
 	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+		this.startTime = Date.valueOf(LocalDate.now());
 	}
 
 	public Date getEndTime() {
