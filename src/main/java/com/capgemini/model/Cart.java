@@ -9,13 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cascade;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Cart 
 {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +29,7 @@ public class Cart
 	
 	Date endTime;
 	
-	@OneToMany(targetEntity=Product.class)
+	@ManyToMany(targetEntity=Product.class)
 	List product;
 	
 	int quantity;
