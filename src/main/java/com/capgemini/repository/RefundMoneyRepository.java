@@ -9,6 +9,6 @@ import com.capgemini.model.OrderDetails;
 public interface RefundMoneyRepository extends JpaRepository<OrderDetails,Integer>{
 	
 @Query(value="select o from OrderDetails o where o.id=?1")
-public OrderDetails refunddisplay(@Param("id")int id);
+public OrderDetails refundDisplay(@Param("id")int id);
 
 }

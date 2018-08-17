@@ -11,9 +11,9 @@ public class RefundController {
 @Autowired
 RefundMoney service;
 @RequestMapping(value="/refunddisplay")
-public String refunddisplay(int id )
+public String refundDisplay(int id )
 {
-	String status = service.refunddisplay(id); 
+	String status = service.refundDisplay(id); 
      return status;
 }
 }

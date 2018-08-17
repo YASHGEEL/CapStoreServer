@@ -12,8 +12,8 @@ public class RefundMoneyImpl implements RefundMoney{
 	@Autowired
 	RefundMoneyRepository repo;
 	@Override
-	public String refunddisplay(int id) {
-		OrderDetails o= repo.refunddisplay(id);
+	public String refundDisplay(int id) {
+		OrderDetails o= repo.refundDisplay(id);
 		if(o.getStatus().equalsIgnoreCase("RETURNED"))	
 			return "Refund Successful";
 		else return "Sorry,Product is not Delivered You are not Eligible for Refund";
