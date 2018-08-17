@@ -1,6 +1,8 @@
 package com.capgemini.service;
 
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class ManagingMerchantImpl implements ManagingMerchantService {
 	
 	@Override
 	public void AddMerchant(Merchant merch) {
+		merch.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(merch);
 		
 	}
