@@ -1,9 +1,14 @@
 package com.capgemini.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-import com.capgemini.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-public interface WishlistRepository extends CrudRepository<Customer, Integer> {
+import com.capgemini.model.Product;
+import com.capgemini.model.WishList;
 
+public interface WishlistRepository extends JpaRepository<WishList, Integer> {
+
+   
 }
