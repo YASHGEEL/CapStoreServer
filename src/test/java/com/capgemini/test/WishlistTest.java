@@ -20,51 +20,33 @@ import com.capgemini.service.WishlistServiceImpl;
 
 public class WishlistTest {
 	WishlistService wishlistService;
-	
+
 	@Mock
 	WishlistRepository Repository;
+
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		
-		
+
 	}
 
 	@Test
-	public void addproducts()
-	{
-		
-	}
-	@Test
-	public void removeproducts()
-	{
-		
-	
-	}
-	@Test
-	public void addproducts2()
-	{
-		
-	
-	}
-	@Test
-	public void display() 
-	{
-		
-	
-	}
-	@Test
-	public void display2() 
-	{
-		
-	
-		
-	}
-	@Test(expected=ProductNotFoundException.class)
-	public void productnotfoundexception()
-	{
-		
-	}
+	public void addproducts() {
+
 	}
 
+	@Test
+	public void removeproducts() {
 
+	}
+
+	@Test
+	public void display() {
+
+	}
+
+	@Test(expected = ProductNotFoundException.class)
+	public void productnotfoundexception() {
+
+	}
+}

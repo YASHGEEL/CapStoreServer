@@ -1,4 +1,6 @@
 package com.capgemini.service;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ public class WishlistServiceImpl implements WishlistService {
 		Product product=repoprod.getOne(pid);
 		Customer customer = repocust.getOne(custid);
 		WishList wishlist=repo.getOne(customer.getWishList().getId());
+		wishlist.setStartTime(Date.valueOf(LocalDate.now()));
 		List<Product> prod=wishlist.getProduct();
 		prod.add(product);
 		wishlist.setProduct(prod);
@@ -34,9 +37,10 @@ public class WishlistServiceImpl implements WishlistService {
   
 
 	@Override
-	public void add(int custid) {
+	public void addwish(int custid) {
 		Customer customer = repocust.getOne(custid);
 		WishList wishlist=new WishList();
+		wishlist.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(wishlist);
 		customer.setWishList(repo.getOne(wishlist.getId()));
 		repocust.save(customer);
