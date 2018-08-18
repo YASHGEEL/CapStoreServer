@@ -52,7 +52,6 @@ public class Product
   
 
   @ManyToOne()
-  @JoinColumn(name="product")
   Merchant merchant;
   
   
