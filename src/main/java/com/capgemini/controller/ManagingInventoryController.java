@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.model.Category;
@@ -25,11 +26,11 @@ public class ManagingInventoryController {
 	{
 		return manageInventory.displayListOfProducts(categoryId);
 	}
-	@RequestMapping(value="/addNewProduct")
+	@RequestMapping(value="/addNewProduct",method=RequestMethod.POST)
 	Product addNewProduct(@RequestBody Product product) {
 		return manageInventory.addNewProduct(product);
 	}
-	@RequestMapping(value="/editExistingProduct")
+	@RequestMapping(value="/editExistingProduct",method=RequestMethod.POST)
 	Product editExistingProduct(@RequestBody Product product) {
 		return manageInventory.editExistingProductDetails(product);
 	}
@@ -38,7 +39,7 @@ public class ManagingInventoryController {
 	{
 		return manageInventory.displayListOfCategories();
 	}
-	@RequestMapping(value="/addNewCategory")
+	@RequestMapping(value="/addNewCategory",method=RequestMethod.POST)
 	Category addNewCategory(@RequestBody Category category) {
 		return manageInventory.addNewCategory(category);
 	}
