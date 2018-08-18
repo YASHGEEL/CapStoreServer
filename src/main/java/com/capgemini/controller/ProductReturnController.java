@@ -16,10 +16,17 @@ public class ProductReturnController {
 	
 	
 	@RequestMapping("/returnPurchasedProduct")
-	public OrderDetails getProductReturnDetails(int id) throws OrderDetailsNotFoundException
+	public OrderDetails getProductReturnDetails(int orderId,int productId) throws OrderDetailsNotFoundException
 	{
-		return productReturnService.returnProduct(id);
+		return productReturnService.returnProduct(orderId,productId);
 	}
+	
+	/*@RequestMapping("/returnPurchasedOrder")
+	public OrderDetails getOrderReturnDetails(int orderId) throws OrderDetailsNotFoundException
+	{
+		return productReturnService.returnOrder(orderId);
+	}*/
+	
 	
 	
 }

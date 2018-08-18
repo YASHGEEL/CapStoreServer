@@ -5,5 +5,6 @@ import com.capgemini.model.OrderDetails;
 
 
 public interface ProductReturnService {
-	OrderDetails returnProduct(int id) throws OrderDetailsNotFoundException;
+	OrderDetails returnProduct(int orderId,int productId) throws OrderDetailsNotFoundException;
+	//OrderDetails returnOrder(int orderId) throws OrderDetailsNotFoundException;
 }
