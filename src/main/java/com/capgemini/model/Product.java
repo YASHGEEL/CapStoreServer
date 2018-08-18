@@ -1,6 +1,7 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -51,7 +52,6 @@ public class Product
   
 
   @ManyToOne()
-  @JoinColumn(name="product")
   Merchant merchant;
   
   
@@ -88,7 +88,7 @@ public Date getStartTime() {
 }
 
 public void setStartTime(Date startTime) {
-	this.startTime = startTime;
+	this.startTime = Date.valueOf(LocalDate.now());
 }
 
 public Date getEndTime() {
