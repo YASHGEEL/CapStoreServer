@@ -9,7 +9,7 @@ public interface WishlistService {
 	
 public Product addItem(int pid,int custid);
 	
-	public void add(int custid);
+	public void addwish(int custid);
 	
 	public void removeItem(int pid,int custid);
 	

@@ -28,7 +28,7 @@ public class WishlistController {
 	@RequestMapping(value="/add")
 	public void add(int cid)
 	{
-		service.add(cid);
+		service.addwish(cid);
 	}
 	@RequestMapping(value="/display")
 	public WishList display(int cid)
