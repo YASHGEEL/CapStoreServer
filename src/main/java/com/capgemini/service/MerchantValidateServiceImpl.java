@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.capgemini.exception.MerchantNotFoundException;
 import com.capgemini.model.Merchant;
 import com.capgemini.repository.MerchantRepository;
-
+  
 @Component
 public class MerchantValidateServiceImpl implements MerchantValidateService {
 	@Autowired

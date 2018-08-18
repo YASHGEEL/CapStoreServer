@@ -10,3 +10,5 @@ public interface MerchantValidateService {
 	public List<Merchant> merchantValidation(List<Merchant> merchantList);
 	public List<Merchant> getMerchantDetails() throws MerchantNotFoundException;
 }
+
+
