@@ -1,5 +1,7 @@
 package com.capgemini.service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ public class ManagingInventoryImpl implements IManagingInventory{
 
 	@Override
 	public Product addNewProduct(Product product) {
-		
+		product.setStartTime(Date.valueOf(LocalDate.now()));
 		return productInventoryRepository.save(product);
 	}
 
@@ -48,6 +50,7 @@ public class ManagingInventoryImpl implements IManagingInventory{
 
 	@Override
 	public Category addNewCategory(Category category) {
+		category.setStartTime(Date.valueOf(LocalDate.now()));
 		return categoryInventoryRepository.save(category);
 	}
 
