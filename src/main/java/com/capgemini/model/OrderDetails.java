@@ -1,6 +1,7 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -50,7 +51,7 @@ public class OrderDetails
 	}
 
 	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+		this.startTime = Date.valueOf(LocalDate.now());
 	}
 
 	public Date getEndTime() {

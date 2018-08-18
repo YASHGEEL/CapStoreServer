@@ -1,6 +1,7 @@
 package com.capgemini.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -74,8 +75,8 @@ public class Merchant
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStartTime(Date startTim) {
+		this.startTime = Date.valueOf(LocalDate.now());
 	}
 
 	public Date getEndTime() {
