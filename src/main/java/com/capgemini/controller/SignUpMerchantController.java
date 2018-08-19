@@ -15,8 +15,8 @@ import com.capgemini.service.signUpMerchant;
 public class SignUpMerchantController {
 	@Autowired(required = true)
 	public signUpMerchant service2;
-	@Autowired
-	Rating rate;
+	/*@Autowired
+	Rating rate;*/
 
 	@RequestMapping(value = "/addMerchant", method = RequestMethod.POST)
 	public String addMerchant(@RequestBody Merchant merchant) {

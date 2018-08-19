@@ -23,6 +23,8 @@ public class WishlistServiceImpl implements WishlistService {
 	@Autowired
 	WishListCustomer repocust;
 
+	
+
 	@Override
 	public Product addItem(int pid, int custid) {
 		Product product = repoprod.getOne(pid);
