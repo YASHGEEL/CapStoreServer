@@ -1,13 +1,20 @@
 package com.capgemini.service;
 
+import java.util.List;
+
 import com.capgemini.model.Product;
 import com.capgemini.model.WishList;
 
 public interface WishlistService {
-	public abstract WishList add(Product product);
 	
-	public abstract WishList remove(Product product);
+public Product addItem(int pid,int custid);
 	
-	public abstract WishList display();
+	public void addwish(int custid);
+	
+	public void removeItem(int pid,int custid);
+	
+	public WishList display(int custid);
+	   
 
 }
+
