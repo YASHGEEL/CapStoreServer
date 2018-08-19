@@ -42,7 +42,7 @@ public class Admin
 	public void setStartTime(Date startTime) {
 		
 		//Date.valueOf(LocalDate.now())
-		this.startTime = startTime;
+		this.startTime = Date.valueOf(LocalDate.now());
 	}
 
 	public Date getEndTime() {
