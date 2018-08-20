@@ -1,9 +1,12 @@
 package com.capgemini.service;
 
-import com.capgemini.model.OrderDetails;
+import java.util.List;
+
+import com.capgemini.exception.OrderDetailsNotFoundException;
+import com.capgemini.exception.ProductNotFoundException;
 
 public interface GenerateInvoiceService {
-	
-	public OrderDetails generate_invoice(int order_id);
+
+	public List generate_invoice(int order_id) throws OrderDetailsNotFoundException, ProductNotFoundException;
 
 }
