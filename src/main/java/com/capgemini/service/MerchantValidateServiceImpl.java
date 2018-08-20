@@ -33,14 +33,11 @@ public class MerchantValidateServiceImpl implements MerchantValidateService {
 	}
 
 	@Override
-	public List<Merchant> merchantValidation(List<Merchant> merchantList) {
+	public Merchant merchantValidation(Merchant merchant) {
 		// TODO Auto-generated method stub
 
-		Merchant merchant = new Merchant();
-		Iterator<Merchant> iter = merchantList.iterator();
-		while (iter.hasNext()) {
-			merchant = iter.next();
-			if (merchant.getStatus().equals("accept")) {
+		
+		if (merchant.getStatus().equals("accept")) {
 				merchant.setStatus("Approved");
 				repo.save(merchant);
 
@@ -50,7 +47,6 @@ public class MerchantValidateServiceImpl implements MerchantValidateService {
                    repo.delete(merchant);
 			}
 
-		}
-		return merchantList;
+		return merchant;
 	}
 }
