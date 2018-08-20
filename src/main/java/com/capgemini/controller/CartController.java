@@ -19,8 +19,9 @@ public class CartController {
 
 	@RequestMapping(value = "/addCartItem", method=RequestMethod.GET)
 	
-	public Product addProduct(int pid, int cid) {
-		return service.addCartItem(pid, cid);
+	public String addProduct(int pid, int cid) {
+	 service.addCartItem(pid, cid);
+	 return "Added to cart";
 	}
 
 	@RequestMapping(value = "/removeCartItem")

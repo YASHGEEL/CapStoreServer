@@ -58,7 +58,7 @@ public class CartServiceImpl implements ICartService {
 		prod.add(product);
 		cart.setProduct(prod);
 		cart.setQuantity(cart.getQuantity() + 1);
-		product.setQuantity(product.getQuantity()-1);
+		//product.setQuantity(product.getQuantity()-1);
 		
 		cart.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(cart);

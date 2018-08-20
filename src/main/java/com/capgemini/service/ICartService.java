@@ -12,8 +12,6 @@ import com.capgemini.model.Product;
 
 public interface ICartService {
 
-	//public Product addCartItem(int pid, int custid,int quantity);
-	
 	public Product addCartItem(int pid, int custid);
 
 	public void addCart(int custid);
