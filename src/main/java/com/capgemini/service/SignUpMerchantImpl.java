@@ -47,4 +47,8 @@ public class SignUpMerchantImpl implements signUpMerchant {
 		} else
 			return false;
 	}
+	public Merchant findMerchantByid(int id) {
+		Merchant merch = repo.getMerchantDetails(id);
+		return merch;
+	}
 }

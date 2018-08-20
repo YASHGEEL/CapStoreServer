@@ -49,4 +49,10 @@ public class signUpCustomerImpl implements signUpCustomer {
 		} else
 			return false;
 	}
+
+	@Override
+	public Customer findCustomerByid(int id) {
+		Customer custom = repo.findCustomerByid(id);
+		return custom;
+	}
 }
