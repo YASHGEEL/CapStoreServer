@@ -14,14 +14,13 @@ import com.capgemini.service.ICartService;
 @RestController
 public class CartController {
 
-	
-	
 	@Autowired
 	ICartService service;
 
-	@RequestMapping(value = "/addCartItem", method=RequestMethod.POST)
-	public void addProduct(int pid, int cid) {
-		 service.addCartItem(pid, cid);
+	@RequestMapping(value = "/addCartItem", method=RequestMethod.GET)
+	
+	public Product addProduct(int pid, int cid) {
+		return service.addCartItem(pid, cid);
 	}
 
 	@RequestMapping(value = "/removeCartItem")
