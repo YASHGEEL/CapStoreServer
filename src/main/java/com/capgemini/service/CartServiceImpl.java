@@ -1,5 +1,7 @@
 package com.capgemini.service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ import com.capgemini.repository.CartRepository;
 import com.capgemini.repository.UserRepository;
 
 @Service
-public class CartServiceImpl  implements ICartService {
+public class CartServiceImpl implements ICartService {
 
 	@Autowired
 	CartRepository repo;
@@ -24,78 +26,63 @@ public class CartServiceImpl  implements ICartService {
 	@Autowired
 	CartCustomer repocust;
 
-	
-
 	@Override
-	public Product addCartItem(int pid,int custid) {
-		Product product=repoprod.getOne(pid);
+	public Product addCartItem(int pid, int custid) {
+		Product product = repoprod.getOne(pid);
 		Customer customer = repocust.getOne(custid);
-		Cart cart=repo.getOne(customer.getCart().getId());
-		List<Product> prod=cart.getProduct();
+		Cart cart = repo.getOne(customer.getCart().getId());
+		List<Product> prod = cart.getProduct();
 		prod.add(product);
 		cart.setProduct(prod);
-		cart.setQuantity(cart.getQuantity()+1);
+		cart.setQuantity(cart.getQuantity() + 1);
 		repo.save(cart);
 		return product;
-		
+
 	}
-
-
 
 	@Override
 	public void addCart(int custid) {
 		Customer customer = repocust.getOne(custid);
-		Cart cart=new Cart();
+		Cart cart = new Cart();
+		cart.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(cart);
 		customer.setCart(repo.getOne(cart.getId()));
 		repocust.save(customer);
-		
+
 	}
-
-
 
 	@Override
 	public void removeCartItem(int pid, int custid) {
-		Product product=repoprod.getOne(pid);
+		Product product = repoprod.getOne(pid);
 		Customer customer = repocust.getOne(custid);
-		Cart cart=repo.getOne(customer.getCart().getId());
-		List<Product> prod=cart.getProduct();
+		Cart cart = repo.getOne(customer.getCart().getId());
+		List<Product> prod = cart.getProduct();
 		prod.remove(product);
 		cart.setProduct(prod);
-		cart.setQuantity(cart.getQuantity()-1);
+		cart.setQuantity(cart.getQuantity() - 1);
 		repo.save(cart);
 	}
+
 	@Override
 	public Cart viewCart(int custid) {
 		Customer customer = repocust.getOne(custid);
 		return repo.getOne(customer.getCart().getId());
 	}
 
-
-
 	@Override
 	public Boolean minAmountCheck(int custid) {
 		Customer customer = repocust.getOne(custid);
-		Cart cart=repo.getOne(customer.getCart().getId());
-		List<Product> prod=cart.getProduct();
-		float amount=0;
-		for(Product product:prod)
-		{
-			amount+=product.getCost();
+		Cart cart = repo.getOne(customer.getCart().getId());
+		List<Product> prod = cart.getProduct();
+		float amount = 0;
+		for (Product product : prod) {
+			amount += product.getCost();
 		}
-		if(amount>100)
-		{
+		if (amount > 100) {
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}
-	
-
-	
-
-	
 
 }
