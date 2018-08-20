@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.capgemini.exception.InvalidCustomerIdException;
 import com.capgemini.model.Customer;
 import com.capgemini.repository.ShippingDetailsRepository;
-import com.capgemini.repository.UserRepository;
+
 
 @Service
 public class ShippingDetailsImpl implements ShippingDetails {
@@ -18,10 +18,12 @@ public class ShippingDetailsImpl implements ShippingDetails {
 		this.repo = repo;
 	}
 
-	@Override
-	
+	@Override	
 	public Customer gettingShippingDeatilsOfCustomer(int customerId) throws InvalidCustomerIdException {
-		return null;	
+		Customer customer=repo.getDetails(customerId);
+		if(customer==null)
+			throw new InvalidCustomerIdException("no customer found with this id");
+		else return customer;	
 		
 	}
 

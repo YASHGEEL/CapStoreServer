@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.capgemini.exception.InvalidCustomerIdException;
 import com.capgemini.model.Customer;
 import com.capgemini.repository.ShippingDetailsRepository;
-import com.capgemini.repository.UserRepository;
 import com.capgemini.service.ShippingDetails;
 import com.capgemini.service.ShippingDetailsImpl;
 
@@ -27,11 +26,26 @@ public class TestShippingDetails {
 	}
 	@Test(expected=InvalidCustomerIdException.class)
 	public void testCustomerExisting() throws InvalidCustomerIdException{
-		
+		Customer customer = new Customer();
+		customer.setId(101);
+		customer.setName("Tejaswini");
+		customer.setEmail("Tejaswini.Pogaru@gmail.com");
+		customer.setPhone("9876543210");
+		customer.setAddress("SriSaiSadan");
+		shippingDetailsRepo.save(customer);
+		assertEquals(customer,shippingDetailsService.gettingShippingDeatilsOfCustomer(101));		
 		
 	}
 	@Test(expected=InvalidCustomerIdException.class)
 	public void testCustomerNonExisting() throws InvalidCustomerIdException {
+		Customer customer = new Customer();
+		customer.setId(101);
+		customer.setName("Tejaswini");
+		customer.setEmail("Tejaswini.Pogaru@gmail.com");
+		customer.setPhone("9876543210");
+		customer.setAddress("SriSaiSadan");
+		shippingDetailsRepo.save(customer);
+        assertNotEquals(null, shippingDetailsService.gettingShippingDeatilsOfCustomer(101));
 		    
 	}
 
