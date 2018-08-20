@@ -9,9 +9,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.capgemini.model.Product;
 
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Integer>{
 
-	@Query(value = "select p from Product p where p.startTime Between (:date) And (:date1)")
-	public List<Product> newProducts(@Param("date") Date date,@Param("date1") Date date1);
+	@Query(value = "select p from Product p join p.category c where (p.startTime Between (?1) And (?2)) And (c.name=?3)")
+	public List<Product> newProducts(Date date,Date date1,String categoryName);
 
 }

@@ -9,5 +9,5 @@ import com.capgemini.model.PromoCode;
 
 public interface PromoDisplayService {
 	public abstract List<PromoCode> promoDisplay() throws PromoCodeNotFoundException ;
-	public abstract List<Product> newProductsDisplay() throws ProductNotFoundException;
+	public abstract List<Product> newProductsDisplay(String categoryName) throws ProductNotFoundException;
 }

@@ -18,7 +18,7 @@ public class PromoActionController {
 	@Autowired(required=true)
 	private PromoDisplayService promoServices;
 	
-	@RequestMapping(value="/applyPromo",method=RequestMethod.GET)
+	@RequestMapping(value="/applyPromo")
 	public  List<PromoCode> applyPromo() throws PromoCodeNotFoundException {
 		try {
 			List<PromoCode> list =promoServices.promoDisplay();	
@@ -28,10 +28,10 @@ public class PromoActionController {
 		}
 		
 	}
-	@RequestMapping(value="/newProduct",method=RequestMethod.GET)
-	public  List<Product> newProduct() throws ProductNotFoundException {
+	@RequestMapping(value="/newProduct")
+	public  List<Product> newProduct(String categoryName) throws ProductNotFoundException {
 		try {
-			List<Product> list =promoServices.newProductsDisplay();	
+			List<Product> list =promoServices.newProductsDisplay(categoryName);	
 			return list;
 		} catch (ProductNotFoundException e) {
 			throw new ProductNotFoundException("No new Products are available");
