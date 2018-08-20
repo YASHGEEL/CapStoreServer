@@ -2,8 +2,11 @@ package com.capgemini.service;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
+
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +17,12 @@ import com.capgemini.model.Product;
 import com.capgemini.repository.CartCustomer;
 import com.capgemini.repository.CartProductRepository;
 import com.capgemini.repository.CartRepository;
-import com.capgemini.repository.UserRepository;
+
 
 @Service
 public class CartServiceImpl implements ICartService {
 
+	
 	@Autowired
 	CartRepository repo;
 	@Autowired
@@ -26,16 +30,39 @@ public class CartServiceImpl implements ICartService {
 	@Autowired
 	CartCustomer repocust;
 
-	@Override
-	public Product addCartItem(int pid, int custid) {
+	/*@Override
+	public Product addCartItem(int pid, int custid,int quantity) {
 		Product product = repoprod.getOne(pid);
 		Customer customer = repocust.getOne(custid);
 		Cart cart = repo.getOne(customer.getCart().getId());
 		List<Product> prod = cart.getProduct();
 		prod.add(product);
 		cart.setProduct(prod);
-		cart.setQuantity(cart.getQuantity() + 1);
+		cart.setQuantity(cart.getQuantity()+quantity);
+		cart.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(cart);
+		return product;
+
+	}*/
+	
+	@PersistenceContext
+	  private EntityManager em;
+	
+	@Override
+	public Product addCartItem(int pid, int custid) {
+		Product product = repoprod.getOne(pid);
+		Customer customer = repocust.getOne(custid);
+		Cart cart = repo.getOne(customer.getCart().getId());
+		List<Product> prod = cart.getProduct();
+		
+		prod.add(product);
+		cart.setProduct(prod);
+		cart.setQuantity(cart.getQuantity() + 1);
+		product.setQuantity(product.getQuantity()-1);
+		
+		cart.setStartTime(Date.valueOf(LocalDate.now()));
+		repo.save(cart);
+		
 		return product;
 
 	}
@@ -44,7 +71,6 @@ public class CartServiceImpl implements ICartService {
 	public void addCart(int custid) {
 		Customer customer = repocust.getOne(custid);
 		Cart cart = new Cart();
-		cart.setStartTime(Date.valueOf(LocalDate.now()));
 		repo.save(cart);
 		customer.setCart(repo.getOne(cart.getId()));
 		repocust.save(customer);
