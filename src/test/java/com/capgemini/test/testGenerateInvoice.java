@@ -31,19 +31,6 @@ public class testGenerateInvoice {
 		service=new GenerateInvoiceServiceImpl();
 		
 	}
-
-
-
-//	@Test(expected = NullPointerException.class)
-//	public void testEmptyOrderDetails() {
-//
-//	}
-//
-//	@Test(expected=IllegalArgumentException.class)
-//	public void testInvalidEntries() {
-//
-//	}
-
 	@Test
 	public void testvalidOrderDetails() {
 		
