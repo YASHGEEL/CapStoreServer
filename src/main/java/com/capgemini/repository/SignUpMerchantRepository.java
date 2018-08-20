@@ -11,5 +11,8 @@ public interface SignUpMerchantRepository extends JpaRepository<Merchant, Intege
 
 	@Query(value = "Select m from Merchant m where m.phone=?1")
 	public Merchant getMerchantPhone(String phone);
+	
+	@Query(value= "Select m from Merchant m where m.id=?1")
+	public Merchant getMerchantDetails(int id);
 
 }
