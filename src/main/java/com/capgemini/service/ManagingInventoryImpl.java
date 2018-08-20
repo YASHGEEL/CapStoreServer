@@ -20,9 +20,9 @@ public class ManagingInventoryImpl implements IManagingInventory{
 	CategoryInventoryRepository categoryInventoryRepository;
 
 	@Override
-	public List<Product> displayListOfProducts(int categoryId) {
+	public List<Product> displayListOfProducts() {
 		
-		return productInventoryRepository.displayListOfProducts(categoryId);
+		return productInventoryRepository.findAll();
 	}
 
 	@Override

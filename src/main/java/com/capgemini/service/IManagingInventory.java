@@ -6,7 +6,7 @@ import com.capgemini.model.Category;
 import com.capgemini.model.Product;
 
 public interface IManagingInventory {
-	List<Product> displayListOfProducts(int categoryId);
+	List<Product> displayListOfProducts();
 	Product addNewProduct(Product product);
 	Product editExistingProductDetails(Product product);
 	void removeExistingProduct(int productId);

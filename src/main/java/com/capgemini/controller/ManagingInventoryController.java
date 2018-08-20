@@ -22,9 +22,9 @@ public class ManagingInventoryController {
 	}
 	
 	@RequestMapping(value="/displayAllProducts")
-	List<Product> displayAllProducts(int categoryId)
+	List<Product> displayAllProducts()
 	{
-		return manageInventory.displayListOfProducts(categoryId);
+		return manageInventory.displayListOfProducts();
 	}
 	@RequestMapping(value="/addNewProduct",method=RequestMethod.POST)
 	Product addNewProduct(@RequestBody Product product) {
