@@ -28,12 +28,14 @@ public class ManagingInventoryImpl implements IManagingInventory{
 	@Override
 	public Product addNewProduct(Product product) {
 		product.setStartTime(Date.valueOf(LocalDate.now()));
+		product.setStatus("Approved");
 		return productInventoryRepository.save(product);
 	}
 
 	@Override
 	public Product editExistingProductDetails(Product product) {
 		
+		product.setStartTime(Date.valueOf(LocalDate.now()));
 		return productInventoryRepository.save(product);
 	}
 
