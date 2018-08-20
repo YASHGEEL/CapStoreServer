@@ -14,7 +14,6 @@ import com.capgemini.service.signUpMerchant;
 public class SignUpMerchantController {
 	@Autowired(required = true)
 	public signUpMerchant service2;
-	
 
 	@RequestMapping(value = "/addMerchant", method = RequestMethod.POST)
 	public String addMerchant(@RequestBody Merchant merchant) {
