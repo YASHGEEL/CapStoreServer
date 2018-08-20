@@ -7,7 +7,7 @@ import com.capgemini.model.Merchant;
 
 public interface MerchantValidateService {
 
-	public List<Merchant> merchantValidation(List<Merchant> merchantList);
+	public Merchant merchantValidation(Merchant merchant);
 	public List<Merchant> getMerchantDetails() throws MerchantNotFoundException;
 }
 
