@@ -8,5 +8,5 @@ public void AddMerchant(Merchant merch);
 public void DeleteMerchant(int id);
 public void UpdateMerchant(Merchant merch);
 public List<Merchant> displayMerchant();
-public Merchant displaySingleMerchant(int id);
+public List<Merchant> displayApprovedMerchant();
 }
