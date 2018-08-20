@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.capgemini.model.Category;
 import com.capgemini.model.Product;
+import com.capgemini.model.ProductSummary;
 import com.capgemini.repository.CategoryInventoryRepository;
 import com.capgemini.repository.ProductInventoryRepository;
 @Component
@@ -34,7 +35,6 @@ public class ManagingInventoryImpl implements IManagingInventory{
 
 	@Override
 	public Product editExistingProductDetails(Product product) {
-		
 		product.setStartTime(Date.valueOf(LocalDate.now()));
 		return productInventoryRepository.save(product);
 	}
@@ -60,6 +60,12 @@ public class ManagingInventoryImpl implements IManagingInventory{
 	public void removeExistingCategory(int categoryId) {
 		categoryInventoryRepository.deleteById(categoryId);
 		
+	}
+
+	@Override
+	public Product getProductdetails(int id) {
+		
+		return productInventoryRepository.getOne(id);
 	}
 
 }

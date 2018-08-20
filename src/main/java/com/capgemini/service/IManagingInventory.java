@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.capgemini.model.Category;
 import com.capgemini.model.Product;
+import com.capgemini.model.ProductSummary;
 
 public interface IManagingInventory {
 	List<Product> displayListOfProducts();
@@ -13,5 +14,6 @@ public interface IManagingInventory {
 		List<Category> displayListOfCategories();
 	Category addNewCategory(Category category);
 	void removeExistingCategory(int categoryId);
+	Product getProductdetails(int id);
 
 }
