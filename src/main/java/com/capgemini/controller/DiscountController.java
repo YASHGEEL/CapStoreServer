@@ -5,6 +5,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.model.Discount;
@@ -17,9 +18,11 @@ public class DiscountController {
 	ApplyDiscountInterface service;
 
 	@RequestMapping(value = "/discountDB", method = RequestMethod.POST)
-	public Product discountDB(int id, @RequestBody Discount discount) {
-		return service.discountDB(id, discount);
-		
+	public Product discountDB(@RequestBody Product product) {
+		System.out.println(product.getId());
+
+		return service.discountDB(product);
+
 	}
 
 }

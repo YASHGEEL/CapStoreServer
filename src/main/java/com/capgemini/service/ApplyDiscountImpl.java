@@ -21,13 +21,21 @@ public class ApplyDiscountImpl implements ApplyDiscountInterface {
 	DiscountRepo2 repo2;
 
 	@Override
-	public Product discountDB(int id, Discount discount) {
-		Product product = repo2.getOne(id);
+	public Product discountDB(Product product) {
+		int id=product.getId();
+		Discount discount=product.getDiscount();
+		Product product1 = repo2.getOne(id);
 		discount.setStartTime(Date.valueOf(LocalDate.now()));
 		discount = repo.save(discount);
-		product.setDiscount(discount); /* product.setdiscount(discount.getId) */
-		repo2.save(product);
-		return product;
+		product1.setDiscount(discount); /* product.setdiscount(discount.getId) */
+		repo2.save(product1);
+		return product1;
+	}
+
+	@Override
+	public Product discountDB(int id, Discount discount) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
