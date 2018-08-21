@@ -22,8 +22,8 @@ public class ManagingInventoryImpl implements IManagingInventory{
 
 	@Override
 	public List<Product> displayListOfProducts() {
-		
 		return productInventoryRepository.findAll();
+		//return productInventoryRepository.displayListOfProducts();
 	}
 
 	@Override
@@ -66,6 +66,23 @@ public class ManagingInventoryImpl implements IManagingInventory{
 	public Product getProductdetails(int id) {
 		
 		return productInventoryRepository.getOne(id);
+	}
+
+	@Override
+	public Product validateProduct(Product product) {
+		String status=product.getStatus();
+		if(status.matches("accept")) {
+			product.setStatus("Approved");
+			return productInventoryRepository.save(product);
+		
+		}
+		return null;
+	}
+
+	@Override
+	public List<Product> displayListOfNotApprovedProducts() {
+		
+		return productInventoryRepository.displayListOfNotApprovedProducts();
 	}
 
 }

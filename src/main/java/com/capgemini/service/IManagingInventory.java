@@ -11,9 +11,11 @@ public interface IManagingInventory {
 	Product addNewProduct(Product product);
 	Product editExistingProductDetails(Product product);
 	void removeExistingProduct(int productId);
-		List<Category> displayListOfCategories();
+	List<Category> displayListOfCategories();
 	Category addNewCategory(Category category);
 	void removeExistingCategory(int categoryId);
 	Product getProductdetails(int id);
+	Product validateProduct(Product product);
+	List<Product> displayListOfNotApprovedProducts();
 
 }
