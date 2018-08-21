@@ -14,5 +14,7 @@ public interface ProductInventoryRepository extends JpaRepository<Product, Integ
 
 	@Query("select product from Product product where product.status='Not Approved'")
 	List<Product> displayListOfNotApprovedProducts();
+	@Query("select product from Product product where product.status='Approved'")
+	List<Product> displayListOfApprovedProducts();
 
 }
