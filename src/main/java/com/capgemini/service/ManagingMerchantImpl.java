@@ -46,8 +46,8 @@ public class ManagingMerchantImpl implements ManagingMerchantService {
 	}
 
 	@Override
-	public Merchant displaySingleMerchant(int id) {
-		return repo.merchantdisplay(id);
+	public List<Merchant> displayApprovedMerchant() {
+		return repo.merchantdisplay();
 	}
 
 
