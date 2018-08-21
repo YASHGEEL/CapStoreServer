@@ -11,7 +11,5 @@ import com.capgemini.model.ProductSummary;
 public interface ProductInventoryRepository extends JpaRepository<Product, Integer>{
 	@Query("select product from Product product")
 	List<ProductSummary> displayListOfProducts();
-	@Query("select product from Product product where product.status='Not Approved'")
-	List<Product> displayListOfNotApprovedProducts();
 
 }
