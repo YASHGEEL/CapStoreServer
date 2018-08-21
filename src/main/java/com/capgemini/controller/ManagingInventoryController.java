@@ -1,8 +1,10 @@
 package com.capgemini.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.model.Category;
 import com.capgemini.model.Product;
+import com.capgemini.model.ProductSummary;
 import com.capgemini.service.IManagingInventory;
 import com.capgemini.service.ManagingInventoryImpl;
 
@@ -20,15 +23,33 @@ public class ManagingInventoryController {
 	{
 		manageInventory=new ManagingInventoryImpl();
 	}
-	
+	@RequestMapping(value="/hello")
+	public String sayHello() {
+		return "Hello from 10.220.57.22";
+	}
+	//@CrossOrigin(value="*")
 	@RequestMapping(value="/displayAllProducts")
-	List<Product> displayAllProducts(int categoryId)
+	List<Product> displayAllProducts()
 	{
-		return manageInventory.displayListOfProducts(categoryId);
+		/*List<Product> p = new ArrayList<Product>();
+		List<Product> dbResult = manageInventory.displayListOfProducts();
+		p.add(dbResult.get(1));
+		*/
+		return manageInventory.displayListOfProducts();
+		//return manageInventory.displayListOfProducts();
+	}
+	@RequestMapping(value="/removeProduct",method=RequestMethod.POST)
+	void removeProduct(@RequestBody int id)
+	{
+		manageInventory.removeExistingProduct(id);
 	}
 	@RequestMapping(value="/addNewProduct",method=RequestMethod.POST)
 	Product addNewProduct(@RequestBody Product product) {
 		return manageInventory.addNewProduct(product);
+	}
+	@RequestMapping(value="/getProductDetails",method=RequestMethod.POST)
+	Product addNewProduct(@RequestBody int id) {
+		return manageInventory.getProductdetails(id);
 	}
 	@RequestMapping(value="/editExistingProduct",method=RequestMethod.POST)
 	Product editExistingProduct(@RequestBody Product product) {
