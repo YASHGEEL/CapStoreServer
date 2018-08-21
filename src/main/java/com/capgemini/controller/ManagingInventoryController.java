@@ -43,14 +43,14 @@ public class ManagingInventoryController {
 
 	@RequestMapping(value = "/displayNotApprovedProducts")
 	List<Product> displayNotApprovedProducts() {
-		/*
-		 * List<Product> p = new ArrayList<Product>(); List<Product> dbResult =
-		 * manageInventory.displayListOfProducts(); p.add(dbResult.get(1));
-		 */
+		
 		return manageInventory.displayListOfNotApprovedProducts();
-		// return manageInventory.displayListOfProducts();
 	}
-
+	@RequestMapping(value = "/displayApprovedProducts")
+	List<Product> displayApprovedProducts() {
+		
+		return manageInventory.displayListOfApprovedProducts();
+	}	
 	@RequestMapping(value = "/validateProduct")
 	Product validateProduct(@RequestBody Product product) {
 		return manageInventory.validateProduct(product);
