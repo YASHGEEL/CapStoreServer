@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.model.Category;
@@ -39,37 +38,17 @@ public class ManagingInventoryController {
 		return manageInventory.displayListOfProducts();
 		//return manageInventory.displayListOfProducts();
 	}
-	@RequestMapping(value="/displayNotApprovedProducts")
-	List<Product> displayNotApprovedProducts()
-	{
-		/*List<Product> p = new ArrayList<Product>();
-		List<Product> dbResult = manageInventory.displayListOfProducts();
-		p.add(dbResult.get(1));
-		*/
-		return manageInventory.displayListOfNotApprovedProducts();
-		//return manageInventory.displayListOfProducts();
-	}
-	@RequestMapping(value="/validateProduct")
-	Product validateProduct(@RequestBody Product product)
-	{
-		return manageInventory.validateProduct(product);
-	}
 	@RequestMapping(value="/removeProduct",method=RequestMethod.POST)
 	void removeProduct(@RequestBody int id)
 	{
 		manageInventory.removeExistingProduct(id);
 	}
-	@RequestMapping(value="/removeCategory",method=RequestMethod.POST)
-	void removeCategory(@RequestBody int id)
-	{
-		manageInventory.removeExistingCategory(id);
-	}
 	@RequestMapping(value="/addNewProduct",method=RequestMethod.POST)
 	Product addNewProduct(@RequestBody Product product) {
 		return manageInventory.addNewProduct(product);
 	}
-	@RequestMapping(value="/getProductDetails")
-	Product addNewProduct(int id) {
+	@RequestMapping(value="/getProductDetails",method=RequestMethod.POST)
+	Product addNewProduct(@RequestBody int id) {
 		return manageInventory.getProductdetails(id);
 	}
 	@RequestMapping(value="/editExistingProduct",method=RequestMethod.POST)

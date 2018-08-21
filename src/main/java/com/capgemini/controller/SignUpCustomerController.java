@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.model.Customer;
 import com.capgemini.model.Product;
@@ -25,8 +26,7 @@ public class SignUpCustomerController {
 	
 	
 	@RequestMapping(value = "/addCustomer",method=RequestMethod.POST)
-	public String addCustomer(@RequestBody Customer customer) {
-		
+	public String addCustomer(@RequestBody Customer customer) {		
 		String str = service1.addCustomer(customer);
 		if(str==null) {
 		iCart.addCart(customer.getId());
@@ -34,5 +34,9 @@ public class SignUpCustomerController {
 		}
 		return str;
 	}
-	
+	@RequestMapping(value = "/displayCustomerDetails", method = RequestMethod.GET)
+	public Customer displayCustomerDetails(@RequestParam("id") int id) {
+		Customer cus = service1.findCustomerByid(id);
+		return cus;
+	}
 }

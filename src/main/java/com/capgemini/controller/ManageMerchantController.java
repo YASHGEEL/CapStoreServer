@@ -36,10 +36,10 @@ public class ManageMerchantController {
 	{
 		return service.displayMerchant();
 	}
-	@RequestMapping(value="/DisplaySingleMerchant")
-	public Merchant merchantDisplay(int id)
+	@RequestMapping(value="/DisplayApprovedMerchant")
+	public List<Merchant> merchantApprovedDisplay()
 	{
-		return service.displaySingleMerchant(id);
+		return service.displayApprovedMerchant();
 	}
 	
 	

@@ -8,5 +8,7 @@ import com.capgemini.model.Product;
 
 public interface ApplyDiscountInterface {
 
-	public Product discountDB(int id, @RequestBody Discount discount);
+	public Product discountDB(int id, Discount discount);
+
+	Product discountDB(Product product);
 }
