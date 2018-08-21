@@ -27,4 +27,8 @@ public interface IManagingInventory {
 
 	List<Product> displayListOfNotApprovedProducts();
 
+	List<Product> displayListOfApprovedProducts();
+
+
 }
+
