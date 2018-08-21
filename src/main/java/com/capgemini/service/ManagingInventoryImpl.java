@@ -30,7 +30,7 @@ public class ManagingInventoryImpl implements IManagingInventory {
 	@Override
 	public Product addNewProduct(Product product) {
 		product.setStartTime(Date.valueOf(LocalDate.now()));
-		product.setStatus("Approved");
+		product.setStatus("Not Approved");
 		return productInventoryRepository.save(product);
 	}
 
@@ -83,7 +83,13 @@ public class ManagingInventoryImpl implements IManagingInventory {
 	@Override
 	public List<Product> displayListOfNotApprovedProducts() {
 
-		return productInventoryRepository.displayListOfNotApprovedProducts();
+		return productInventoryRepository.displayListOfApprovedProducts();
 	}
 
+	@Override
+	public List<Product> displayListOfApprovedProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+
