@@ -19,9 +19,9 @@ public class MerchantValidationController {
 	private MerchantValidateService validateService;
 	
 	@RequestMapping(value="/recieveMerchant",method=RequestMethod.POST)
-	public List<Merchant> recieveMerchant(@RequestBody List<Merchant> merchant) {
-		List<Merchant> merchantList=validateService.merchantValidation(merchant);
-	    return merchantList;
+	public Merchant recieveMerchant(@RequestBody Merchant merchant) {
+		Merchant merchant1=validateService.merchantValidation(merchant);
+	    return merchant1;
 	}
     
 	@RequestMapping(value="/merchant")

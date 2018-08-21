@@ -13,4 +13,7 @@ public interface SignUpCustomerRepository extends JpaRepository<Customer, Intege
 	
 	@Query(value=" Select c From Customer c where c.phone=?1")
 	public Customer getCustomerPhone(String phone);
+	
+	@Query(value=" Select c From Customer c where c.id=?1")
+	public Customer findCustomerByid(int id);
 }
