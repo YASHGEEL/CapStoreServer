@@ -1,7 +1,5 @@
 package com.capgemini.service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
