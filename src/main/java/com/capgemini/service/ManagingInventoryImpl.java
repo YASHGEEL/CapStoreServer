@@ -77,7 +77,10 @@ public class ManagingInventoryImpl implements IManagingInventory {
 			return productInventoryRepository.save(product);
 
 		}
-		return null;
+		else {
+			productInventoryRepository.deleteById(product.getId());
+			return null;
+		}
 	}
 
 	@Override
@@ -92,4 +95,5 @@ public class ManagingInventoryImpl implements IManagingInventory {
 		return productInventoryRepository.displayListOfApprovedProducts();
 	}
 }
+
 
