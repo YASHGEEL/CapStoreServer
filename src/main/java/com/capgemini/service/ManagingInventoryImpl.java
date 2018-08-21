@@ -83,13 +83,13 @@ public class ManagingInventoryImpl implements IManagingInventory {
 	@Override
 	public List<Product> displayListOfNotApprovedProducts() {
 
-		return productInventoryRepository.displayListOfApprovedProducts();
+		return productInventoryRepository.displayListOfNotApprovedProducts();
 	}
 
 	@Override
 	public List<Product> displayListOfApprovedProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return productInventoryRepository.displayListOfApprovedProducts();
 	}
 }
 
