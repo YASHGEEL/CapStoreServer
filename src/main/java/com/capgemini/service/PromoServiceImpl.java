@@ -28,19 +28,27 @@ PromoRepository promo;
 		//List list=new ArrayList();
 		// LocalDate date=LocalDate.now();
 		List<PromoCode> list=promo.newPromos();
+	//	System.out.println(list);
+		if(list.size()!=0)
 		return list;
+		 else {
+			throw new PromoCodeNotFoundException("No PromoCodes are available");
+		 }
 	}
 
 	@Override
-	public List<Product> newProductsDisplay() throws ProductNotFoundException{
-		System.out.println("true");
-	    LocalDate date=LocalDate.now();
-	    Date date1=Date.valueOf(date);
-	    date=date.minusDays(3);
-	    System.out.println(date1);
-	   // List productList=new ArrayList();
-	   List<Product> productList=product.newProducts(date1);
-		return productList;
+	public List<Product> newProductsDisplay(String categoryName) throws ProductNotFoundException{
+			LocalDate date=LocalDate.now();
+			Date date1=Date.valueOf(date);
+			LocalDate date2=date.minusDays(15);
+			Date date3=Date.valueOf(date2);
+          List<Product> productList=product.newProducts(date3,date1,categoryName);
+          if(productList.size()!=0)
+			return productList;
+          else {
+        	  System.out.println("not found");
+			throw new ProductNotFoundException("No new Arrivals");
+		}
 	}
 
 }
